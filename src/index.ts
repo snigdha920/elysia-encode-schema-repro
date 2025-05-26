@@ -62,7 +62,7 @@ const app = new Elysia({
     }
   )
   .get(
-    "/tokens3",
+    "/tokens2",
     () => {
       return TOKENS;
     },
@@ -85,7 +85,7 @@ const app = new Elysia({
     }
   )
   .get(
-    "/tokens2",
+    "/tokens3",
     () => {
       return TOKENS;
     },

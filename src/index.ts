@@ -23,6 +23,19 @@ const app = new Elysia({
       200: StringifiedBigInt(), // Expected: "1", received: response is not an Object. (evaluating '"charCodeAt"in response')
     }
   )
+  .get(
+    "/bigint2",
+    () => {
+      return {
+        bigint: BigInt(1),
+      };
+    },
+    {
+      200: t.Object({
+        bigint: StringifiedBigInt(), // Expected: {bigint: "1"}, received: JSON.stringify cannot serialize BigInt.
+      }),
+    }
+  )
   .listen(3000);
 
 console.log(
